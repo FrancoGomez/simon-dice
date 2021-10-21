@@ -1,0 +1,22 @@
+{
+  "name": "simon-dice",
+  "version": "1.0.0",
+  "description": "Juego de simon dice de r/ArgentinaPrograma, clase 10",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrancoGomez/simon-dice.git"
+  },
+  "author": "Franco Gomez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FrancoGomez/simon-dice/issues"
+  },
+  "homepage": "https://github.com/FrancoGomez/simon-dice#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
+}
