@@ -3,41 +3,44 @@
     padding: 0;
 }
 
+body {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.contenedor-pagina{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
 .contenedor-barra-superior {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     background-color: #d1e7dd;
     border-radius: 0 0 5px 5px;
-    height: 50px;
-    max-width: 90%;
-    min-width: 350px;
-    margin: auto;
-    margin-bottom: 20px;
-}
-
-.padre-contenedor-cuadrados{
-  position: relative;
-  padding-top: min(100%, 600px);
-  max-height: 600px;
-  max-width: 600px;
-  margin: auto;
+    min-height: 50px;
+    min-width: max(90%, 350px);
+    margin: 0 auto;
 }
 
 .contenedor-cuadrados-juego {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  max-height: min(90% , 600px);
-  min-height: 350px;
-  max-width: min(90% , 600px);
-  min-width: 350px;
+  min-height: min(80vw, 80vh, 600px);
+  min-width: min(80vw, 80vh, 600px);
+  margin: 20px auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  margin: auto;
 }
 
 .cuadrados-juego {
@@ -52,9 +55,7 @@
     align-items: center;
     background-color: #d1e7dd;
     border-radius: 5px 5px 0 0;
-    height: 50px;
-    max-width: 90%;
-    min-width: 350px;
-    margin: auto;
-    margin-top: 20px;
+    min-height: 50px;
+    min-width: max(90%, 350px);
+    margin: 0 auto;
 }
