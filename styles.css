@@ -17,6 +17,8 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
+/*Gracias a flex column los elementos ocupan toda la pantalla
+  con el uso de space-between*/
   display: flex;
   flex-flow: column;
   justify-content: space-between;
@@ -34,6 +36,10 @@ body {
     margin: 0 auto;
 }
 
+/*Como el contenedor de cuadrados puede crecer en ancho y alto,
+  ya que hace de acuerdo al crecimiento de la pagina,
+  a ambos valores se les determino crecimiento de acuerdo a ello,
+  ademas de un valor maximo determinado en pixeles. */
 .contenedor-cuadrados-juego {
   min-height: min(80vw, 80vh, 600px);
   min-width: min(80vw, 80vh, 600px);
