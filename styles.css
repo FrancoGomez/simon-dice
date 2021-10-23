@@ -11,22 +11,36 @@
     border-radius: 0 0 5px 5px;
     height: 50px;
     max-width: 90%;
-    min-width: calc(182px * 3);
+    min-width: 350px;
     margin: auto;
     margin-bottom: 20px;
 }
 
+.padre-contenedor-cuadrados{
+  position: relative;
+  padding-top: min(100%, 600px);
+  max-height: 600px;
+  max-width: 600px;
+  margin: auto;
+}
+
 .contenedor-cuadrados-juego {
-  height: max-content;
-  width: calc(182px * 3);
-  display: flex;
-  flex-wrap: wrap;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-height: min(90% , 600px);
+  min-height: 350px;
+  max-width: min(90% , 600px);
+  min-width: 350px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
   margin: auto;
 }
 
 .cuadrados-juego {
-  height: 180px;
-  width: 180px;
   background-color: #cfe2ff;
   border: 1px solid #b6d4fe;
   border-radius: 5px;
@@ -40,7 +54,7 @@
     border-radius: 5px 5px 0 0;
     height: 50px;
     max-width: 90%;
-    min-width: calc(182px * 3);
+    min-width: 350px;
     margin: auto;
     margin-top: 20px;
 }
