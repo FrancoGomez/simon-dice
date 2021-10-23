@@ -1,15 +1,22 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   height: 100vh;
   width: 100vw;
   position: relative;
+  background-color: rgb(43, 135, 209);
+  font-family: sans-serif;
+  font-size: 28px;
 }
 
-.contenedor-pagina{
+.menor-opacidad {
+  opacity: 0.6;
+}
+
+.contenedor-pagina {
   position: absolute;
   top: 0;
   right: 0;
@@ -17,23 +24,22 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
-/*Gracias a flex column los elementos ocupan toda la pantalla
+  /*Gracias a flex column los elementos ocupan toda la pantalla
   con el uso de space-between*/
   display: flex;
   flex-flow: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   box-sizing: border-box;
 }
 
 .contenedor-barra-superior {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: #d1e7dd;
-    border-radius: 0 0 5px 5px;
-    min-height: 50px;
-    min-width: max(90%, 350px);
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  min-height: 50px;
+  min-width: max(90%, 350px);
+  margin: 0 auto;
 }
 
 /*Como el contenedor de cuadrados puede crecer en ancho y alto,
@@ -50,18 +56,6 @@ body {
 }
 
 .cuadrados-juego {
-  background-color: #cfe2ff;
-  border: 1px solid #b6d4fe;
+  background-color: rgba(0, 0, 102, 0.25);
   border-radius: 5px;
-}
-
-.contenedor-barra-inferior {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: #d1e7dd;
-    border-radius: 5px 5px 0 0;
-    min-height: 50px;
-    min-width: max(90%, 350px);
-    margin: 0 auto;
 }
