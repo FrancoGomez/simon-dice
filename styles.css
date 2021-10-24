@@ -24,8 +24,6 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
-  /*Gracias a flex column los elementos ocupan toda la pantalla
-  con el uso de space-between*/
   display: flex;
   flex-flow: column;
   justify-content: space-evenly;
@@ -43,10 +41,7 @@ body {
   margin: 0 auto;
 }
 
-/*Como el contenedor de cuadrados puede crecer en ancho y alto,
-  ya que hace de acuerdo al crecimiento de la pagina,
-  a ambos valores se les determino crecimiento de acuerdo a ello,
-  ademas de un valor maximo determinado en pixeles. */
+/* Tanto el ancho como el alto creceran de la misma manera, con un maximo de 600px para creecer */
 .contenedor-cuadrados-juego {
   min-height: min(80vw, 80vh, 600px);
   min-width: min(80vw, 80vh, 600px);
@@ -56,8 +51,18 @@ body {
   gap: 3%;
 }
 
-.cuadrados-juego {
+.cuadrados-juego--hover-activado,
+.cuadrados-juego--hover-desactivado {
   border-radius: 8%;
+  transition: background-color 0.25s;
+}
+
+.cuadrados-juego--hover-activado:hover {
+  cursor: pointer;
+}
+
+.cuadrados-juego--hover-desactivado:hover {
+ cursor: not-allowed;
 }
 
 .cuadrados-juego--default {
