@@ -14,10 +14,19 @@ const $contenedorCuadradosJuego = document.querySelector(
 );
 const $numeroRonda = document.querySelector("#numero-ronda");
 const $numeroPuntos = document.querySelector("#numero-puntos");
+const $botonComenzar = document.querySelector("#boton-comenzar");
+const $containerContenedorModal = document.querySelector(
+  "#container-contenedor-modal"
+);
+const $tituloModal = document.querySelector('#titulo-modal')
+const $descriptionModal = document.querySelector('#descripcion-modal')
 
 const NUMERO_CUADRADOS = 9;
 let arrayPatronNumerosSimonDice;
 let numeroDeClick;
+$numeroRonda.textContent = 1;
+$numeroPuntos.textContent = 0;
+let datosModalModificados = false;
 
 function crearCuadradosJuego(cuadradosParaCrear) {
   for (let index = 0; index < cuadradosParaCrear; index++) {
@@ -93,8 +102,6 @@ function iniciarJuego() {
   reproducirPatronSimonDicenEnPantalla();
 }
 
-iniciarJuego();
-
 function revisarSiClickeoCuadradoCorrecto(
   indexParaRevisarEnArray,
   idCuadradoClickeado
@@ -103,6 +110,18 @@ function revisarSiClickeoCuadradoCorrecto(
     arrayPatronNumerosSimonDice[indexParaRevisarEnArray] ===
     Number(idCuadradoClickeado)
   );
+}
+
+function manejarUsuarioPerdio() {
+  $containerContenedorModal.className = $containerContenedorModal.id;
+
+  if(datosModalModificados){
+    return
+  } else {
+    $tituloModal.textContent = 'Uh... parece que perdiste'
+    $descriptionModal.textContent = `Esta vez conseguiste ${$numeroPuntos.textContent} puntos. Pero no te preocupes, siempre podes volver a intentarlo y conseguir mas!`
+    datosModalModificados = true
+  }
 }
 
 function manejarClickUsuario(evento) {
@@ -126,6 +145,11 @@ function manejarClickUsuario(evento) {
       }, 600);
     }
   } else {
-    iniciarJuego();
+    manejarUsuarioPerdio()
   }
 }
+
+$botonComenzar.onclick = function () {
+  $containerContenedorModal.className = "oculto";
+  iniciarJuego();
+};
