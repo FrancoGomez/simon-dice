@@ -23,7 +23,8 @@ function crearCuadradosJuego(cuadradosParaCrear) {
   for (let index = 0; index < cuadradosParaCrear; index++) {
     const CUADRADO = document.createElement("div");
     CUADRADO.setAttribute("id", index);
-    CUADRADO.className = "cuadrados-juego cuadrados-juego--default";
+    CUADRADO.className =
+      "cuadrados-juego--hover-activado cuadrados-juego--default";
     $contenedorCuadradosJuego.appendChild(CUADRADO);
   }
 }
@@ -36,21 +37,33 @@ function agregarNumeroArrayPatronNumerosSimonDice() {
 }
 
 function resaltarCuadrado($cuadrado) {
-  $cuadrado.className = "cuadrados-juego cuadrados-juego--activo";
+  $cuadrado.className =
+    "cuadrados-juego--hover-desactivado cuadrados-juego--activo";
 
   setTimeout(function () {
-    $cuadrado.className = "cuadrados-juego cuadrados-juego--default";
-  }, 500);
+    $cuadrado.className =
+      "cuadrados-juego--hover-desactivado cuadrados-juego--default";
+  }, 350);
 }
 
 function bloquearClickUsuario() {
   $contenedorCuadradosJuego.onclick = () => {};
+
+  $contenedorCuadradosJuego.childNodes.forEach(function (childNode) {
+    childNode.className =
+      "cuadrados-juego--hover-desactivado cuadrados-juego--default";
+  });
 }
 
 function desbloquearClickUsuario() {
   $contenedorCuadradosJuego.onclick = (evento) => {
     manejarClickUsuario(evento);
   };
+
+  $contenedorCuadradosJuego.childNodes.forEach(function (childNode) {
+    childNode.className =
+      "cuadrados-juego--hover-activado cuadrados-juego--default";
+  });
 }
 
 function reproducirPatronSimonDicenEnPantalla() {
@@ -94,19 +107,23 @@ function revisarSiClickeoCuadradoCorrecto(
 
 function manejarClickUsuario(evento) {
   if (revisarSiClickeoCuadradoCorrecto(numeroDeClick, evento.target.id)) {
-    evento.target.className = "cuadrados-juego cuadrados-juego--activo";
+    evento.target.className =
+      "cuadrados-juego--hover-activado cuadrados-juego--activo";
     numeroDeClick++;
     $numeroPuntos.textContent = Number($numeroPuntos.textContent) + 1;
 
     setTimeout(function () {
-      evento.target.className = "cuadrados-juego cuadrados-juego--default";
-    }, 500);
+      evento.target.className =
+        "cuadrados-juego--hover-activado cuadrados-juego--default";
+    }, 350);
 
     if (arrayPatronNumerosSimonDice.length === numeroDeClick) {
-      $numeroRonda.textContent = Number($numeroRonda.textContent) + 1;
-      numeroDeClick = 0;
-      agregarNumeroArrayPatronNumerosSimonDice();
-      reproducirPatronSimonDicenEnPantalla();
+      setTimeout(function () {
+        $numeroRonda.textContent = Number($numeroRonda.textContent) + 1;
+        numeroDeClick = 0;
+        agregarNumeroArrayPatronNumerosSimonDice();
+        reproducirPatronSimonDicenEnPantalla();
+      }, 600);
     }
   } else {
     iniciarJuego();
