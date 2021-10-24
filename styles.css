@@ -16,6 +16,10 @@ body {
   opacity: 0.6;
 }
 
+.oculto {
+  display: none;
+}
+
 .contenedor-pagina {
   position: absolute;
   top: 0;
@@ -62,7 +66,7 @@ body {
 }
 
 .cuadrados-juego--hover-desactivado:hover {
- cursor: not-allowed;
+  cursor: not-allowed;
 }
 
 .cuadrados-juego--default {
@@ -71,4 +75,92 @@ body {
 
 .cuadrados-juego--activo {
   background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Hecho para evitar que el usuario interactue con algo expecto el modal, cuando este este visible */
+.container-contenedor-modal {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+  height: 100vh;
+  width: 100vw;
+}
+
+.contenedor-modal {
+  position: absolute;
+  top: calc(50vh - 260px / 2);
+  right: 10vw;
+  height: 260px;
+  width: min(80%, 500px);
+}
+
+@media (min-width: 625px) {
+  .contenedor-modal {
+    position: absolute;
+    top: calc(50vh - 260px / 2);
+    right: calc(50vw - 502px / 2);
+    height: 260px;
+    width: min(80%, 500px);
+  }
+}
+
+.contenido-modal {
+  height: max-content;
+  width: 100%;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.encabezado-modal {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.encabezado-modal h5 {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.cuerpo-modal {
+  padding: 16px;
+}
+
+.cuerpo-modal p {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.pie-modal {
+  border-top: 1px solid #e9ecef;
+  padding: 16px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.boton-comenzar {
+  color: #fff;
+  background-color: #0069d9;
+  border: 1px solid #0062cc;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.375rem 0.75rem;
+}
+
+.boton-comenzar:hover {
+  opacity: 0.85;
 }
