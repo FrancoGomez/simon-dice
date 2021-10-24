@@ -116,7 +116,7 @@ function manejarUsuarioPerdio() {
   $containerContenedorModal.className = $containerContenedorModal.id;
 
   if(datosModalModificados){
-    return
+    $descriptionModal.textContent = `Esta vez conseguiste ${$numeroPuntos.textContent} puntos. Pero no te preocupes, siempre podes volver a intentarlo y conseguir mas!`
   } else {
     $tituloModal.textContent = 'Uh... parece que perdiste'
     $descriptionModal.textContent = `Esta vez conseguiste ${$numeroPuntos.textContent} puntos. Pero no te preocupes, siempre podes volver a intentarlo y conseguir mas!`
